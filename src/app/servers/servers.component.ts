@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
 
+  serverCreated = false;
   allowNewServer = true;
+  servers = [
+    'TestServer',
+    'TestServer2',
+  ]
 
   serverName = 'TestServer'
 
@@ -15,6 +20,8 @@ export class ServersComponent {
 
   onCreateServer() {
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+    this.serverCreated = true;
+    this.servers.push(this.serverName)
   }
 
   onUpdateServerName(event: Event) {
@@ -23,5 +30,14 @@ export class ServersComponent {
 
   constructor() {
   }
+
+  onPasswordToggle() {
+    this.displayPassword = !this.displayPassword
+    this.buttonClicksArray.push(new Date())
+  }
+
+  displayPassword = false;
+
+  buttonClicksArray = [];
 
 }

@@ -5,7 +5,16 @@
   Add Server
 </button>
 <!-- <p>{{serverName}}</p> -->
-<p>{{serverCreationStatus}}</p>
-<app-server></app-server>
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated;">Server was created, server name is {{serverName}}</p>
+<!-- <ng-template #noServer>
+  <p>
+    No server was created
+  </p>
+</ng-template> -->
 
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
+<!-- <button class="btn-primary btn" (click)="onPasswordToggle()">Display password</button>
+<p *ngIf="displayPassword">Secret password: tuna</p>
+<p *ngFor="let click of buttonClicksArray; let i = index" [ngClass]="{five: i >= 5}" [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}">{{click}}</p> -->
+
